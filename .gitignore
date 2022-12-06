@@ -110,3 +110,6 @@ dist
 
 # Template Folder
 temp
+
+#config file
+config.js

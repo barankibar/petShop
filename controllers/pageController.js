@@ -1,7 +1,3 @@
-const getIndexPage = (req, res) => {
-  res.render("index");
-};
-
 const getAboutPage = (req, res) => {
   res.render("about");
 };
@@ -35,7 +31,6 @@ const getDetailPage = (req, res) => {
 };
 
 module.exports = {
-  getIndexPage,
   getAboutPage,
   getProductPage,
   getServicePage,

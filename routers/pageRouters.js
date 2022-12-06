@@ -1,10 +1,11 @@
 const express = require("express");
 
 const pageController = require("../controllers/pageController");
+const productController = require("../controllers/productController");
 
 const router = express.Router();
 
-router.get("/", pageController.getIndexPage);
+router.get("/", productController.getAllProducts);
 router.get("/about", pageController.getAboutPage);
 router.get("/product", pageController.getProductPage);
 router.get("/service", pageController.getServicePage);
