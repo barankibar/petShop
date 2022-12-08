@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 const pageRouters = require("./routers/pageRouters");
 const productRouters = require("./routers/productRouters");
+const userRouters = require("./routers/userRouters");
 const dbConfig = require("./config/db");
 
 //INSTANCE OF APP
@@ -38,6 +39,7 @@ app.use(fileUpload());
 //ROUTES
 app.use("/", pageRouters);
 app.use("/product", productRouters);
+app.use("/user", userRouters);
 
 //LISTEN
 const port = process.env.PORT || 8080;

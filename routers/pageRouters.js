@@ -14,5 +14,7 @@ router.get("/team", pageController.getTeamPage);
 router.get("/testimonial", pageController.getTestimonialPage);
 router.get("/blog", pageController.getBlogPage);
 router.get("/detail", pageController.getDetailPage); 
+router.get("/login", pageController.getLoginPage);
+router.get("/signup", pageController.getSignUpPage);
 
 module.exports = router;

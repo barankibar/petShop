@@ -42,34 +42,84 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
         <form
-          action="/product/createProduct"
+          action="/user/signup"
           method="POST"
-          enctype="multipart/form-data"
+          enctype="application/x-www-form-urlencoded"
         >
           <div class="row g-3">
             <div class="col-12">
               <input
-                type="image"
-                id="productPhoto"
-                name="img"
-                class="btn btn-primary w-100 py-3"
-              />
-            </div>
-            <div class="col-12">
-              <input
                 type="text"
                 class="form-control bg-light border-0 px-4"
-                placeholder="Title"
+                placeholder="First Name"
                 style="height: 55px"
-                name="title"
+                name="firstname"
               />
             </div>
             <div class="col-12">
               <input
                 type="text"
                 class="form-control bg-light border-0 px-4"
-                placeholder="Price"
-                name="price"
+                placeholder="Last Name"
+                style="height: 55px"
+                name="lastname"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="text"
+                class="form-control bg-light border-0 px-4"
+                placeholder="Username"
+                style="height: 55px"
+                name="username"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="email"
+                class="form-control bg-light border-0 px-4"
+                placeholder="E-mail"
+                name="email"
+                style="height: 55px"
+              />
+            </div>
+            <div class="col-6">
+              <label for="male"
+                ><input
+                  type="radio"
+                  class="bg-light border-0 px-4"
+                  style="height: 55px"
+                  name="gender"
+                  value="male"
+                />Male</label
+              >
+            </div>
+            <div class="col-6">
+              <label for="female">
+                <input
+                  type="radio"
+                  class="bg-light border-0 px-4"
+                  style="height: 55px"
+                  name="gender"
+                  value="female"
+                />Female</label
+              >
+            </div>
+            <div class="col-12">
+              <input
+                type="date"
+                class="form-control bg-light border-0 px-4 radio-inline"
+                placeholder="Birth Day"
+                style="height: 55px"
+                name="birthday"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="password"
+                class="form-control bg-light border-0 px-4"
+                placeholder="Password"
+                name="password"
                 style="height: 55px"
               />
             </div>
@@ -82,6 +132,7 @@
             </div>
           </div>
         </form>
+        Do you have an account? <a href="/login"><i>Login</i></a>
       </div>
     </div>
     <!-- Products End -->

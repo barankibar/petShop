@@ -30,7 +30,17 @@ const getDetailPage = (req, res) => {
   res.render("detail");
 };
 
+const getLoginPage = (req, res) =>  {
+    res.render("login");
+};
+
+const getSignUpPage = (req, res) => {
+  res.render("signup");
+}
+
 module.exports = {
+  getSignUpPage,
+  getLoginPage,
   getAboutPage,
   getProductPage,
   getServicePage,
