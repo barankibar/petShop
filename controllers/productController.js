@@ -1,5 +1,4 @@
 const asyncHandler = require("express-async-handler");
-const mongoose = require("mongoose");
 
 const fs = require("fs");
 const path = require("path");
@@ -8,10 +7,13 @@ const Product = require("../models/ProductModel");
 
 const baseUrl = "http://localhost:8080/productImages/";
 
+const addProductPage = (req, res) => {
+  res.render("addProduct");
+};
+
 const getAllProducts = asyncHandler(async (req, res) => {
   try {
     const products = await Product.find({});
-    console.log(products);
 
     res.status(200).render("index", {
       products,
@@ -31,22 +33,31 @@ const createNewProduct = asyncHandler(async (req, res) => {
       fs.mkdirSync(uploadDir);
     }
 
-    let uploadImage = req.files.image;
-    let uploadPath = __dirname + "/public/uploads/" + uploadImage.title;
+    let uploadImage = req.files.img;
+    let uploadPath = path.join(
+      __dirname,
+      "..",
+      "public",
+      "uploads",
+      uploadImage.name
+    );
+    console.log(uploadPath);
 
-    uploadImage.mv(uploadPath, async () => {
-      await Product.create({
-        ...req.body,
-        image: "/uploads/" + uploadImage.name,
-      });
+    uploadImage.mv(
+      uploadPath,
+      asyncHandler(async () => {
+        await Product.create({
+          image: "/uploads/" + uploadImage.name,
+          ...req.body,
+        });
+        res.redirect("/");
+      })
+    );
 
-      res.status(201).redirect("/");
-    });
-
-    await Product.create({
-      title: req.body.title,
-      price: req.body.price,
-    });
+    // await Product.create({
+    //   title: req.body.title,
+    //   price: req.body.price,
+    // });
   } catch (err) {
     res.status(400).json({
       status: "fail",
@@ -54,7 +65,9 @@ const createNewProduct = asyncHandler(async (req, res) => {
     });
   }
 });
+
 module.exports = {
   getAllProducts,
   createNewProduct,
+  addProductPage,
 };

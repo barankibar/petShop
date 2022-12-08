@@ -13,6 +13,6 @@ router.get("/price", pageController.getPricePage);
 router.get("/team", pageController.getTeamPage);
 router.get("/testimonial", pageController.getTestimonialPage);
 router.get("/blog", pageController.getBlogPage);
-router.get("/detail", pageController.getDetailPage);
+router.get("/detail", pageController.getDetailPage); 
 
 module.exports = router;

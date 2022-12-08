@@ -33,10 +33,11 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 //ROUTES
 app.use("/", pageRouters);
-app.use("/createProduct", productRouters);
+app.use("/product", productRouters);
 
 //LISTEN
 const port = process.env.PORT || 8080;
