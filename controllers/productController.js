@@ -11,20 +11,20 @@ const addProductPage = (req, res) => {
   res.render("addProduct");
 };
 
-const getAllProducts = asyncHandler(async (req, res) => {
-  try {
-    const products = await Product.find({});
+  const getAllProducts = asyncHandler(async (req, res) => {
+    try {
+      const products = await Product.find({});
 
-    res.status(200).render("index", {
-      products,
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      err,
-    });
-  }
-});
+      res.status(200).render("index", {
+        products,
+      });
+    } catch (err) {
+      res.status(404).json({
+        status: "fail",
+        err,
+      });
+    }
+  });
 
 const createNewProduct = asyncHandler(async (req, res) => {
   try {

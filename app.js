@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const ejs = require("ejs");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 
 const pageRouters = require("./routers/pageRouters");
 const productRouters = require("./routers/productRouters");
@@ -15,6 +15,7 @@ const app = express();
 const corsOptions = {
   origin: "http://localhost:8080",
 };
+dotenv.config();
 
 //DB CONNECTION
 mongoose
@@ -42,7 +43,16 @@ app.use("/product", productRouters);
 app.use("/user", userRouters);
 
 //LISTEN
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`Running at ${port} port`);
-});
+if (process.env.NODE_ENV === "development") {
+  const port = 8080;
+
+  app.listen(port, () => {
+    console.log(`Running at ${port} port`);
+  });
+} else {
+  const port = process.env.SERVER_PORT;
+
+  app.listen(port, () => {
+    console.log(`Running at ${port} port`);
+  });
+}

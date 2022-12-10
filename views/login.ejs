@@ -41,35 +41,32 @@
     <div class="row g-5">
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
-        <form
-          action="/product/createProduct"
-          method="POST"
-          enctype="multipart/form-data"
-        >
+        <form action="/user/login" method="POST" enctype="multipart/form-data">
           <div class="row g-3">
             <div class="col-12">
               <input
-                type="file"
-                id="productPhoto"
-                name="img"
-                class="btn btn-primary w-100 py-3"
-              />
-            </div>
-            <div class="col-12">
-              <input
                 type="text"
                 class="form-control bg-light border-0 px-4"
-                placeholder="Title"
+                placeholder="Username"
                 style="height: 55px"
-                name="title"
+                name="username"
               />
             </div>
             <div class="col-12">
               <input
-                type="text"
+                type="email"
                 class="form-control bg-light border-0 px-4"
-                placeholder="Price"
-                name="price"
+                placeholder="E-mail"
+                name="email"
+                style="height: 55px"
+              />
+            </div>
+            <div class="col-12">
+              <input
+                type="password"
+                class="form-control bg-light border-0 px-4"
+                placeholder="Password"
+                name="password"
                 style="height: 55px"
               />
             </div>
