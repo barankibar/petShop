@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 
 const User = require("../models/UserModel");
+const { session } = require("passport");
 
 const signUp = asyncHandler(async (req, res) => {
   try {
@@ -17,19 +18,9 @@ const signUp = asyncHandler(async (req, res) => {
 
 const login = asyncHandler(async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    await User.findOne({ email }, (err, user) => {
-      bcrypt.compare(password, user.password, (err, same) => {
-        if (!same) {
-          res.redirect("/user/login");
-        }
-        console.log(same);
-        console.log(email, password);
-
-        res.status(200).redirect("/");
-      });
-    }).clone((err) => console.error(err));
+    console.log(session.caller);
+    req.session.userID = session.caller._id;
+    redirect("/");
   } catch (err) {
     res.status(400).json({
       status: "fail",

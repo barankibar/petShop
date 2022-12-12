@@ -1,4 +1,5 @@
 const express = require("express");
+const passport = require("passport");
 
 const userController = require("../controllers/userController");
 const userCreationMiddleware = require("../middlewares/userCreationMiddleware");
@@ -11,6 +12,13 @@ router.post(
   userController.signUp
 );
 
-router.post("/login", userController.login);
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+    successRedirect: "/",
+    failureFlash: false,
+  })
+);
 
 module.exports = router;
