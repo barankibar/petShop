@@ -32,17 +32,37 @@
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
   </head>
 
   <body>
     <%- include("partials/_topbar.ejs") %>
 
-    <!-- Products Start -->
     <div class="row g-5">
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
         <form action="/user/login" method="POST" enctype="multipart/form-data">
           <div class="row g-3">
+            <div class="col-6">
+              <a
+                href=""
+                onclick="window.open('user/login/google', 'name', 'width=600, height=400')"
+              >
+                <div>
+                  <img
+                    width="20px"
+                    style="display: inline; float: left"
+                    alt="Google sign-in"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                  />
+                </div>
+                Login with Google
+              </a>
+            </div>
             <div class="col-12">
               <input
                 type="text"
@@ -81,7 +101,6 @@
         </form>
       </div>
     </div>
-    <!-- Products End -->
     <!-- Footer Start -->
     <div class="container-fluid bg-light mt-5 py-5">
       <div class="container pt-5">

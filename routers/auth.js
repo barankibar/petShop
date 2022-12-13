@@ -21,4 +21,19 @@ router.post(
   })
 );
 
+router.get(
+  "/login/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
+
+router.get(
+  "/login/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    successRedirect: "/",
+    failureFlash: false,
+    successFlash: false,
+  })
+);
+
 module.exports = router;

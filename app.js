@@ -10,7 +10,7 @@ const path = require("path");
 
 const pageRouters = require("./routers/pageRouters");
 const productRouters = require("./routers/productRouters");
-const userRouters = require("./routers/userRouters");
+const auth = require("./routers/auth");
 const dbConfig = require("./config/db");
 
 //INSTANCE OF APP
@@ -63,7 +63,7 @@ passport.deserializeUser((user, done) => {
 //ROUTES
 app.use("/", pageRouters);
 app.use("/product", productRouters);
-app.use("/user", userRouters);
+app.use("/user", auth);
 
 //LISTEN
 if (process.env.NODE_ENV === "development") {
